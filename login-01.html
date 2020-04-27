@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
 
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -20,6 +20,7 @@
   <style>
 
     * {
+      box-sizing: border-box!important;
       font-family: 'Montserrat', sans-serif;
       margin: 0px;
       padding: 0px;
@@ -29,6 +30,91 @@
     body {
       background-image: linear-gradient(120deg, #3498DB, #8E44AD);
       min-height: 100vh;
+    }
+
+    form.form {
+      background-color: #F1F1F1;
+      height: 580px;
+      left: 50%;
+      /* margin: 10px 0px 0px; */
+      padding: 80px 40px;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 360px;
+    }
+
+    form.form h4 {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    form.form .form-group {
+      border-bottom: 2px solid #ADADAD;
+      margin: 30px 0;
+      position: relative;
+    }
+
+    form.form .form-group input.form-control {
+      background: none;
+      border: none;
+      color: #333;
+      font-size: 15px;
+      height: 30px;
+      outline: none;
+      padding: 0 5px;
+      width: 100%;
+    }
+
+    form.form .form-group span:before {
+      color: #ADADAD;
+      content: attr(data-placeholder);
+      left: 5px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: .5s;
+      z-index: -1;
+    }
+
+    form.form .form-group span::after {
+      background: linear-gradient(120deg, #3498DB, #8E44AD);
+      content: ' ';
+      height: 2px;
+      position: absolute;
+      transition: .5s;
+      width: 0%;
+    }
+
+    .focus + span::before {
+      top: -5px;
+    }
+
+    .focus + span::after {
+      width: 100%;
+    }
+
+    .btn {
+      background: linear-gradient(120deg, #3498DB, #8E44AD, #3498DB);
+      background-size: 200%;
+      border: none;
+      color: #FFF;
+      cursor: pointer;
+      display: block;
+      height: 50px;
+      outline: none;
+      transition: .5s;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background-position: right;
+    }
+
+    .form-message {
+      font-size: 13px;
+      margin-top: 60px;
+      text-align: center;
     }
 
   </style>
@@ -44,12 +130,12 @@
       <h4>Login</h4>
 
       <div class="form-group">
-        <input type="text" name="" id="" class="form">
+        <input type="text" name="" id="" class="form-control">
         <span data-placeholder="Username"></span>
       </div>
 
       <div class="form-group">
-        <input type="password" name="" id="" class="form">
+        <input type="password" name="" id="" class="form-control">
         <span data-placeholder="Password"></span>
       </div>
 
@@ -79,6 +165,17 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+
+  <script  type="text/javascript">
+    $(".form-group input").on("focus", function() {
+      $(this).addClass("focus");
+    });
+    $(".form-group input").on("blur", function() {
+      if ($(this).val() == "") {
+        $(this).removeClass("focus");
+      }
+    });
+  </script>
 
 </body>
 
