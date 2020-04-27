@@ -32,9 +32,9 @@
       min-height: 100vh;
     }
 
-    form.form {
+    .form {
       background-color: #F1F1F1;
-      height: 580px;
+      height: 500px;
       left: 50%;
       /* margin: 10px 0px 0px; */
       padding: 80px 40px;
@@ -44,18 +44,18 @@
       width: 360px;
     }
 
-    form.form h4 {
+    .form h4 {
       margin-bottom: 60px;
       text-align: center;
     }
 
-    form.form .form-group {
+    .form-group {
       border-bottom: 2px solid #ADADAD;
       margin: 30px 0;
       position: relative;
     }
 
-    form.form .form-group input.form-control {
+    .form-group input.form-control {
       background: none;
       border: none;
       color: #333;
@@ -66,7 +66,7 @@
       width: 100%;
     }
 
-    form.form .form-group span:before {
+    .form-group span:before {
       color: #ADADAD;
       content: attr(data-placeholder);
       left: 5px;
@@ -77,13 +77,15 @@
       z-index: -1;
     }
 
-    form.form .form-group span::after {
+    .form-group span::after {
       background: linear-gradient(120deg, #3498DB, #8E44AD);
-      content: ' ';
+      content: '';
       height: 2px;
       position: absolute;
       transition: .5s;
       width: 0%;
+      left: 0;
+      top: 100%;
     }
 
     .focus + span::before {
@@ -139,12 +141,10 @@
         <span data-placeholder="Password"></span>
       </div>
 
-      <div class="form-group">
-        <input type="button" value="Login" class="btn btn-small btn-primary">
-      </div>
+      <input type="button" value="Login" class="btn">
 
       <div class="form-message">
-        Don't have an account? <a href="#">Sign Up</a>
+        Don't have account? <a href="#">Sign Up</a>
       </div>
 
     </form>
@@ -167,10 +167,10 @@
     crossorigin="anonymous"></script>
 
   <script  type="text/javascript">
-    $(".form-group input").on("focus", function() {
+    $(".form-control").on("focus", function() {
       $(this).addClass("focus");
     });
-    $(".form-group input").on("blur", function() {
+    $(".form-control").on("blur", function() {
       if ($(this).val() == "") {
         $(this).removeClass("focus");
       }
