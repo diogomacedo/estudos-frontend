@@ -34,6 +34,13 @@
     }
 
     .container > div {
+      align-items: center;
+      color: white;
+      display: flex;
+      font-weight: bold;
+      font-size: 1.5rem;
+      height: 50px;
+      justify-content: center;
       margin: 10px 5px 0px;
     }
 
@@ -83,6 +90,7 @@
       } else {
         $(this).css({"background-color": cores[1]});
       }
+      $(this).text(index + 1);
     });
   </script>
 
